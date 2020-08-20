@@ -1,5 +1,5 @@
 {
-  "name": "type-orm-eav",
+  "name": "typeorm-eav",
   "version": "1.0.0",
   "description": "TypeORM EAV model",
   "main": "lib/index.js",
@@ -9,8 +9,9 @@
     "TypeScript",
     "EAV"
   ],
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest -i src/__tests__/index.test.ts -t --config jestconfig.json --detectOpenHandles",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",

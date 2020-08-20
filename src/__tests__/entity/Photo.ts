@@ -1,9 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export default class Photo {
-
-  static ENTITY_CODE: string = "Ticket";
+  static ENTITY_CODE: string = 'Ticket';
 
   @PrimaryGeneratedColumn()
   id: number;

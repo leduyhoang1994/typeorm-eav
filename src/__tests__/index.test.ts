@@ -1,25 +1,23 @@
 import 'reflect-metadata';
 import { Greeter, eavInject } from '../index';
 import Photo from './entity/Photo';
-import { createConnection, getRepository } from "typeorm";
+import { createConnection, getRepository } from 'typeorm';
 
-test('My Greeter', async () => {
+test('My Greeter', async (done) => {
   eavInject();
   const connection = await createConnection();
   const PHOTO = getRepository(Photo);
 
   let builder = PHOTO.createQueryBuilder();
-  builder = await builder.whereAttribute('name', 'a');
-  const results = await builder.getMany();  
-
-  // console.log(results);
-  
+  builder = builder.whereAttribute('name', 'a');
+  const results = await builder.getMany();
 
   expect(Greeter('Carl')).toBe('Hello Carl');
+  connection.close();
+  done();
 });
 
-test('Generate Migration', async () => {
-  
-
-  expect(1).toBe(1);
+afterAll((done) => {
+  // Closing the DB connection allows Jest to exit successfully.
+  done();
 });

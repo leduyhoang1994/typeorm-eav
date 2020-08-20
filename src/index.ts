@@ -1,8 +1,8 @@
-import { SelectQueryBuilder, Entity } from "typeorm";
+import { SelectQueryBuilder, Entity } from 'typeorm';
 
 export const Greeter = (name: string) => `Hello ${name}`;
 
-declare module "typeorm" {
+declare module 'typeorm' {
   interface SelectQueryBuilder<Entity> {
     /**
      * Find model by entity attribute
@@ -15,9 +15,7 @@ declare module "typeorm" {
 
 export function eavInject() {
   SelectQueryBuilder.prototype.whereAttribute = function (attribute: string, value: any) {
-    console.log(this.expressionMap.mainAlias?.target);
-    
-    this.where("name = :value", { value: value });
+    this.where('name = :value', { value });
     return this;
-  }
+  };
 }
