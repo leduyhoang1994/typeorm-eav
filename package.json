@@ -1,0 +1,42 @@
+{
+  "name": "type-orm-eav",
+  "version": "1.0.0",
+  "description": "TypeORM EAV model",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": ["TypeORM", "TypeScript", "EAV"],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leduyhoang1994/typeorm-eav.git"
+  },
+  "author": "HoangBeat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leduyhoang1994/typeorm-eav/issues"
+  },
+  "homepage": "https://github.com/leduyhoang1994/typeorm-eav#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "jest": "^26.4.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.2.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
