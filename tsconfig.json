@@ -4,8 +4,19 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "./lib",
-    "strict": true
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "emitDecoratorMetadata": true,
+  "experimentalDecorators": true,
+  "strictPropertyInitialization": false,
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*"
+  ]
 }
